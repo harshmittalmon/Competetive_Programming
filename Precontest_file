@@ -1,9 +1,9 @@
 #include <iostream>
 using namespaces std;
 #define vectinp(v){for(auto&i:v){cin>> i;}}
-#define inptestcases int t \
-                     cin>> t\
-                     while(t--)\
+#define itc t \
+            cin>> t\
+            while(t--)\
 int main(){
      
 }
