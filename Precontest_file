@@ -1,9 +1,10 @@
 #include <iostream>
-using namespaces std;
+using namespace std;
 #define vectinp(v){for(auto&i:v){cin>> i;}}
-#define itc t \
-            cin>> t\
+#define itc int t; \
+            cin>> t;\
             while(t--)\
+        
 int main(){
      
 }
