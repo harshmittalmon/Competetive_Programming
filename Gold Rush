@@ -1,0 +1,32 @@
+#include "bits/stdc++.h"
+using namespace std;
+ 
+#define ll long long
+ 
+#define          all(v)              v.begin(), v.end()
+#define         rall(v)              v.rbegin(),v.rend()
+ 
+#define            pb                push_back
+#define          sz(a)               (int)a.size()
+ 
+int solve(int n,int m) {
+    if(n==m) return 1;
+    if(n%3!=0 || n<m) return 0;
+    return(solve(n/3,m)+solve(2* n/3,m));
+    
+}
+ 
+int main() {
+    
+    int t ;
+    cin >> t;
+    while(t--) {
+        int n,m;
+        string ans = "NO";
+        cin>> n>> m;
+        if (solve(n,m))
+        ans = "YES"
+        ;
+        cout << ans<< endl;
+    }
+}
