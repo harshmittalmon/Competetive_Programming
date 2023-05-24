@@ -1,0 +1,50 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define vectinp(v){for(auto&i:v){cin>> i;}}
+#define itc int t; \
+            cin>> t;\
+            while(t--)\
+            
+class node{
+	public: 
+	string data ;
+	node*next=NULL ;
+	public:
+	node(string x){
+		this->data = x;
+		next = NULL;
+	}
+};           
+
+void insertionattail(node* &tail,string x){
+
+    node* bob = new node(x);
+    bob->next = tail;
+    tail->next = bob;
+    tail = bob;
+}
+
+int main(){
+    node * alice = new node("A");
+    node * tail = alice;
+    insertionattail(tail, "B");
+    itc{
+        int n;cin>> n;
+        string results ;cin>> results;
+        unordered_map<string,int>mp;
+        mp["A"]=mp["B"]=0;
+        string server = "A";
+        
+        node*temp= alice;
+        for(int i=0;i<n;i++){
+            if(server[0] == results[i]){
+                mp[server]++;
+            }
+            else{
+                server=temp->next->data;
+                temp = temp->next;
+            }
+        }
+        cout << mp["A"] << " " << mp["B"] << endl;
+    }
+}
