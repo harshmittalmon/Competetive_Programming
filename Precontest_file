@@ -1,10 +1,18 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 #define vectinp(v){for(auto&i:v){cin>> i;}}
+#define PrintVec(v){for(auto&i:v){cout<< i<<" ";}cout<< endl;}
+#define mapii map<int,int> 
+#define u_mapii unordered_map<int,int> 
+
 #define itc int t; \
             cin>> t;\
-            while(t--)\
+            while(t--)
+
+    
         
 int main(){
+     itc{
      
+     }
 }
