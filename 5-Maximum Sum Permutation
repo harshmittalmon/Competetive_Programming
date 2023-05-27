@@ -1,0 +1,64 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define vi vector<int> 
+#define vll vector<long long> 
+#define vectinp(v){for(auto&i:v){cin>> i;}}
+#define PrintVec(v){for(auto&i:v){cout<< i<<" ";}cout<< endl;}
+#define mapii map<int,int> 
+#define u_mapii unordered_map<int,int> 
+#define mapll map<long long int,long long int>
+
+
+#define itc int t; \
+            cin>> t;\
+            while(t--)
+
+
+bool cmp(long long x,long long y) {
+    return x>y;
+}
+int main(){
+    itc{
+        
+        long long n,q;
+        cin>> n>> q;
+        
+        vll arr(n);
+        vectinp(arr);
+        vll freq(n+2,0);
+        while(q--){
+            long long int l,r;
+            cin>> l>>r;
+            freq[l]+=1,freq[r+1]+=-1;
+        }
+        for(int i=1;i<=n;i++){
+            freq[i]=freq[i]+freq[i-1];
+        }
+        
+        sort(arr.begin(),arr.end(),cmp);
+        
+        
+        
+        multiset<pair<long,long>> s;
+        for(int i=1;i<=n;i++){
+            s.insert({freq[i],i});
+        }
+        int index = 0;
+        vll ans(n+1);
+        long long sum = 0;
+        for(auto it = s.rbegin() ;it != s.rend();++it){
+            ans[it->second]=arr[index];
+            sum= sum+it->first*arr[index];
+            index++;
+        }
+        cout << sum<< endl;
+        for(int i=1;i<=n;i++)cout<< ans[i]<< " ";
+        cout << endl;
+    
+        
+    }   
+        
+        
+        
+    
+}
