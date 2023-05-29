@@ -2,6 +2,10 @@
 using namespace std;
 #define vectinp(v){for(auto&i:v){cin>> i;}}
 #define PrintVec(v){for(auto&i:v){cout<< i<<" ";}cout<< endl;}
+#define vi vector<int> 
+#define vll vector<long long>
+#define mapll map<long long,long long>
+#define umapll unordered_map<long long ,long long>
 #define mapii map<int,int> 
 #define u_mapii unordered_map<int,int> 
 
