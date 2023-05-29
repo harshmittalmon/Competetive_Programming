@@ -1,0 +1,24 @@
+//https://codeforces.com/contest/1822/problem/C
+#include <bits/stdc++.h>
+using namespace std;
+#define vectinp(v){for(auto&i:v){cin>> i;}}
+#define vi vector<int>
+#define vll vector<long long>
+#define PrintVec(v){for(auto&i:v){cout<< i<<" ";}cout<< endl;}
+#define PrintVecpair(v){for(auto &i:v){cout<< i.first<< " and "<< i.second;}}
+#define mapii map<int,int> 
+#define u_mapii unordered_map<int,int> 
+ 
+#define itc int t; \
+            cin>> t;\
+            while(t--)
+ 
+ 
+int main(){
+    long long sum = 0;
+    itc{
+        int n ;
+        cin>> n;
+        cout << (1+ (1+n)*1LL*(1+n))<< endl;
+    }
+}
