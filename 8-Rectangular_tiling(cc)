@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define vectinp(v){for(auto&i:v){cin>> i;}}
+#define PrintVec(v){for(auto&i:v){cout<< i<<" ";}cout<< endl;}
+#define vi vector<int> 
+#define vll vector<long long>
+#define mapll map<long long,long long>
+#define umapll unordered_map<long long ,long long>
+#define mapii map<int,int> 
+#define u_mapii unordered_map<int,int> 
+
+#define itc int t; \
+            cin>> t;\
+            while(t--)
+
+    
+
+int main(){
+     itc{
+         int a,b;
+         cin>> a>>b;
+         if(a%2==0 || b%2 ==0 || a%2==0 && b%2==0)cout<< "YES\n";
+         else cout << "NO\n";
+     
+     }
+}
