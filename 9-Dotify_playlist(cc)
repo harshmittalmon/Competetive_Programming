@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define vectinp(v){for(auto&i:v){cin>> i;}}
+#define PrintVec(v){for(auto&i:v){cout<< i<<" ";}cout<< endl;}
+#define vi vector<int> 
+#define vll vector<long long>
+#define mapll map<long long,long long>
+#define umapll unordered_map<long long ,long long>
+#define mapii map<int,int> 
+#define u_mapii unordered_map<int,int> 
+
+#define itc int t; \
+            cin>> t;\
+            while(t--)
+
+    
+bool cmp(int a,int b){
+    return a>b;
+}       
+int main(){
+     itc{
+        int n,k,l;cin>> n>> k>>l;
+        vll v;
+        for(int i=0;i<n;i++){
+            long long a,b;cin>>a>>b;
+            if(b==l)v.push_back(a);
+        }
+        long long int ans=0;
+        if(v.size()<k)cout << "-1\n";
+        else{
+            sort(v.begin(),v.end(),cmp);
+            for(int i=0;i<k;i++) ans+=v[i];
+            cout<< ans<<endl;
+        }
+        
+         
+     
+     }
+}
