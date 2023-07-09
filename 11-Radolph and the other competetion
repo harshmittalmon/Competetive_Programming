@@ -1,0 +1,76 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define vectinp(v){for(auto&i:v){cin>> i;}}
+#define PrintVec(v){for(auto&i:v){cout<< i<<" ";}cout<< endl;}
+#define vi vector<int> 
+#define vll vector<long long>
+#define mapll map<long long,long long>
+#define umapll unordered_map<long long ,long long>
+#define mapii map<int,int> 
+#define u_mapii unordered_map<int,int> 
+
+#define itc int t; \
+            cin>> t;\
+            while(t--)
+
+
+bool cmp(pair<int,long long int> a,pair<int,long long int> b){
+    if(a.first==b.first){
+        return (a.second<b.second);
+    }
+    return (a.first>b.first);
+}
+map <char,int> mp = {{'.',100},{'O',0},{'+',5},{'X',-1}};
+int main(){
+     itc{
+        
+       int n,m,h;
+       cin>>n>>m>>h;
+       vector<vector<int>> mat(n,vector<int> (m,0));
+       for(int i=0;i<n;i++){
+           for(int j=0;j<m;j++){
+               int x ;cin>> x;mat[i][j]=x;
+           }
+       }
+       
+       
+       for(int i=0;i<n;i++){
+           sort(mat[i].begin(),mat[i].end());
+       }
+       
+       
+       vector<pair<int,long long int>> score;
+       int scor=0;
+       long long int penalty=0,penal=0;
+       
+       for(int i=0;i<m;i++){
+           if(penal+mat[0][i]>h)break;
+           scor++,penal+=mat[0][i],penalty+=penal;
+       }
+       
+       pair<int,long long int> radolph = {scor,penalty};
+       score.push_back(radolph);
+       
+       for(int i=1;i<n;i++){
+           int scor=0;
+           long long int penal=0,penalty=0;
+           for(int j=0;j<m;j++){
+               if(penal+mat[i][j] > h) break;
+               penal+=(mat[i][j]);
+               penalty+=penal;
+               scor++;
+           }
+           score.push_back({scor,penalty});
+       }
+       
+       sort(score.begin(),score.end(),cmp);
+       for(int i=0;i<n;i++){
+           if(score[i].first==scor && score[i].second == penalty){
+                cout<< 1+i<< endl;break;
+           }
+       }
+       
+       
+       
+     }
+}
