@@ -1,0 +1,44 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define vectinp(v){for(auto&i:v){cin>> i;}}
+#define PrintVec(v){for(auto&i:v){cout<< i<<" ";}cout<< endl;}
+#define vi vector<int> 
+#define vll vector<long long>
+#define mapll map<long long,long long>
+#define umapll unordered_map<long long ,long long>
+#define mapii map<int,int> 
+#define u_mapii unordered_map<int,int> 
+
+#define itc int t; \
+            cin>> t;\
+            while(t--)
+
+    
+        
+int main(){
+     itc{
+        double n,d,h;
+        cin>> n>>d>>h;
+        vector<double>  base_ht(n,0);
+        vectinp(base_ht);
+        //sort(base_ht.begin(),base_ht.end());
+        double ar= (1.0/2.0)*d*h;
+        
+        for(int i=0;i<n-1;i++){
+            double temp;
+            double check= base_ht[i+1]-base_ht[i];
+            if(check>=h){
+                temp = (1.0/2.0)*d*h;
+            }else{
+                double diff= base_ht[i+1]-base_ht[i];
+                double H = h-diff;
+                temp = ( 1.0/2.0 * (d+ (H*d)/h) * diff    );
+                
+            }
+            ar+=temp;
+            
+        }
+        
+        cout<<fixed<<setprecision(7)<<ar<<endl;
+}
+}
