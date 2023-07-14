@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int t;
+	cin>> t;
+	while(t--){
+	    int n;cin>> n;
+	    string str;cin>> str; 
+	    string orig = str;
+	    reverse(str.begin(),str.end());
+	    if(orig== str || n%3==1 ){
+	        cout<<"YES\n";
+	        continue;
+	    }
+	    
+	    else{
+	        str= orig;bool flag = false;
+	        for(char ch = 'a';ch<='z';ch++){
+	            int u=INT_MAX,v=INT_MIN;
+	            for(int i =0;i<n;i++){
+	                if(i%3==0 && str[i]==ch){
+	                    u=i;
+	                    break;
+	                }
+	            }
+	            for(int i=n-1;i>=0;i--){
+	                if((n-i-1)%3 ==0 and str[i]==ch){
+	                    v=i;break;
+	                }
+	            }
+	            if(v>u) {
+	                flag= true;
+	            }
+	            
+	        }
+	        if(!flag )cout<< "NO\n";
+	        else cout << "YES\n";
+	        
+	    }
+	    
+	    
+	    
+	}
+}
