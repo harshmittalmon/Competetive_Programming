@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+using namespace std;
+bool solve(int x ,vector<int>v,int m,int n){
+    /*for(auto &i:v ){
+        i-=x; 
+    }*/
+    //int maxi = *max_element(v.begin(),v.end());
+    int acc = accumulate(v.begin(),v.end(),0);
+    //cout << "mid : "<< x<< " acc : "<<acc<< " maxi : "<< maxi<< endl;
+    /*if(maxi<=n-x){
+        if(acc<=n-x){
+            return true;
+        }
+    }*/
+    if((m-1)*(n-x) >= acc- (x*m))return true;
+    return false;
+}
+int main() {
+	int t;cin>>t;
+	while(t--){
+	    int n,m;cin>>n>>m;
+	    
+	    vector<int> v(m,0);
+	    for(auto &i:v)cin>> i;
+	    int low= 0,high = n;
+	    int ans=0;
+	    int mid= low+(high-low)/2;
+	    while(low<=high){
+	        //cout<<mid << endl;
+	        if(solve(mid,v,m,n)){
+	            high = mid-1;
+	            ans= mid;
+	            //cout << "passed_mid : "<< mid << endl;
+	        }
+	        else{
+	            low= mid+1;
+	            //cout << "failed_mid : "<< mid << endl;
+	        }
+	        mid = low+ (high-low )/2;
+	        
+	    }
+	    cout << ans<< endl;
+	    
+	}
+}
