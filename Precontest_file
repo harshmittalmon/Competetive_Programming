@@ -8,13 +8,12 @@ using namespace std;
 #define umapll unordered_map<long long ,long long>
 #define mapii map<int,int> 
 #define u_mapii unordered_map<int,int> 
+#define b2e(v){v.begin(),v.end();}
 
 #define itc int t; \
             cin>> t;\
             while(t--)
 
-    
-        
 int main(){
      itc{
      
