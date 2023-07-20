@@ -1,0 +1,50 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define vectinp(v){for(auto&i:v){cin>> i;}}
+#define PrintVec(v){for(auto&i:v){cout<< i<<" ";}cout<< endl;}
+#define vi vector<int> 
+#define vll vector<long long>
+#define mapll map<long long,long long>
+#define umapll unordered_map<long long ,long long>
+#define mapii map<int,int> 
+#define u_mapii unordered_map<int,int> 
+#define ll long long
+#define itc int t; \
+            cin>> t;\
+            while(t--)
+
+    
+        
+int main(){
+     itc{
+         int n;cin>>n;
+         vector<long long> ingreds(n,0);
+         vectinp(ingreds);
+         long long c = INT_MAX;
+         for(int l=0;l<3;l++){
+             for(int r=0;r<3;r++){
+                 ll ings=l+r;
+                 ll a0=ingreds[0]+l;
+                 ll a1=ingreds[1]+r;
+                 for(int k=2;k<n;k++){
+                     ll a2=ingreds[k];
+                     ll sum = a0+a2+a1;
+                     ll rem = sum%3;
+                     if(rem){
+                         ings+=(3-rem);
+                         a2+=(3-rem);
+                     }
+                     a0=a1,a1=a2;
+                     
+                 }           
+                 c=min(c,ings);
+                 
+             }
+             
+         }
+         cout<< c<<endl;
+         
+         
+     
+     }
+}
