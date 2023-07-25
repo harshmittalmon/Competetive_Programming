@@ -1,0 +1,95 @@
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    int n= 2;
+    // MATRIX INPUT N*N ELEMENTS
+    vector<vector<int>> mat(n,vector<int>(n));
+    for(int i=0;i<2;i++){
+        for(int j=0;i<2;j++){
+            cin>> mat[i][j];
+        }
+    }
+    // print matrix ELEMENTS
+    for(int i=0;i<n;i++){
+        for(int j=0;i<n;j++){
+            cout << mat[i][j];
+        }
+    }
+    
+    
+    // or vector<vector<int>> mat;
+    vector<vector<int>> matrix;
+    for(int i=0;i<n;i++){
+        vector<int> temp;
+        for(int j=0;j<n;j++){
+            int x;cin>>x;
+            temp.push_back(x);
+        }
+        matrix.push_back(temp);
+    }
+    //printing
+    for(int i=0;i<n;i++){
+        for(int j=0;i<n;j++){
+            cout<< matrix[i][j];
+        }
+    }
+    
+    
+    
+    
+    //INPUT N ELEMENTS IN SET 
+    set<int> set1 ;
+    for(int i=0;i<n;i++){
+        int x;cin>>x;
+        set1.insert(x);
+    }
+    //printing set1
+    for( auto i = set1.begin() ; i!=set1.end() ; i++ ){
+        cout << *i<<" ";
+    }
+    cout << endl;
+    
+    
+    
+
+    //INPUT N ELEMENTS IN MULTI SET 
+    multiset<int>mset;
+    for(int i=0;i<n;i++){
+        int x;cin>>x;
+        mset.insert(x);
+    }
+    //printing multiset
+    for( auto i = mset.begin() ; i!=mset.end() ; i++ ){
+        cout << *i<<" ";
+    }
+    cout << endl;
+    
+    
+    //input n elements in MAP  INT,INT
+    map<int,int> mp ;
+    for(int i=0;i<n;i++){
+        int x,y;
+        cin>> x>>y;
+        mp[x]=y;
+    }
+    for(auto & i : mp){
+        cout << i.first << " "<< i.second<<endl;
+    }
+    
+    
+    
+    
+
+    
+}
