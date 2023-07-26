@@ -13,8 +13,10 @@ using namespace std;
             cin>> t;\
             while(t--)
 
+void solve(){
+    int n;
+    cin>>n;
+}
 int main(){
-     itc{
-     
-     }
+     itc{solve();}
 }
