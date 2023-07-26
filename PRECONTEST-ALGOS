@@ -88,6 +88,7 @@ long long powerab(long long a ,long long b , int mod) {
         }
     x=(x*x)%mod;
     n/=2;
+    }
     return ans;
 }
 
