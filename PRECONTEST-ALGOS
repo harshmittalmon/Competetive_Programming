@@ -81,16 +81,15 @@ int findMajority(vector<int> arr, int n)
 // 4 - FAST EXPNENTIATION
 long long powerab(long long a ,long long b , int mod) {
     long long ans = 1;
-    while(n>0){
-        if(n%2==1){
-            ans = (x* ans)%mod;
-            n--;
+    while(b>0){
+        if(b%2==1){
+            ans = (a* ans)%mod;
+            b--;
         }
-    x=(x*x)%mod;
-    n/=2;
+        a=(a*a)%mod;
+        b/=2;
     }
     return ans;
 }
-
 
 
