@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() 
+{
+    int n,m;
+    cin>>n>>m;
+    vector<int> v(n+1);
+    for(int i=1;i<=n;i++){
+      int num;cin>>num;
+      if(num%m){
+        v[i]=num/m+1;
+      }
+      else{
+        v[i]=num/m;
+      }
+    }
+    int maxi =-1,maxind=0;
+    for(int i=1;i<=n;i++){
+      if(v[i]>=maxi){
+        maxi = v[i];
+        maxind = i;
+      }
+    }
+    
+    cout<<maxind<<endl;
+    
+    
+}
