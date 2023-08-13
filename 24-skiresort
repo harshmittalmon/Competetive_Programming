@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() 
+{
+    
+    int t;cin>>t;
+    while(t--){
+      int n,k,q;
+      cin>>n>>k>>q;
+      vector<int> inp,sizes;
+      vector<int> mark(n,0);
+      int i=0;
+      while(n--){
+        int num;cin>>num;
+        inp.push_back(num);
+        if(num>q)mark[i]=1;
+        i++;
+      }
+      int size=0;
+      for(auto i : mark){
+        if(!i)size++;
+        else{
+          if(size>=k)
+          sizes.push_back(size);
+          size=0;
+        }
+      }
+      if(size>=k)
+      sizes.push_back(size);
+      long long sum =0;
+      for(auto & i : sizes){
+        for(int j = k ; j<=i ; j++){
+          sum+=(i-  (j-1));
+        }
+      }
+      cout << sum<<endl;
+      
+      
+    }
+    cout <<endl;
+}
