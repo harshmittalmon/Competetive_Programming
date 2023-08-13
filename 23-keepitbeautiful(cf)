@@ -1,0 +1,47 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() 
+{
+  int t;cin>>t;
+  while(t--){
+    int n;cin>>n;
+    
+    int flag = 0, firstnum=-1, lastnum = -1;
+    while(n--){
+      int num ;cin>>num ;
+      if(flag ){
+        if(num <= firstnum and num >= lastnum){
+          cout << 1;
+          lastnum= num;
+        }
+        else cout << 0;
+      }
+      else{
+        if(firstnum==-1){
+          firstnum=lastnum=num;
+          cout << 1;
+        }
+        else if(num >= lastnum){
+          lastnum = num ;
+          cout << 1;
+        }
+        else if(num <= firstnum){
+          flag=!flag;
+          cout << 1;
+          lastnum = num;
+        }
+        else{
+          cout << 0;
+        }
+      }
+      
+    }
+    cout << endl;
+  }
+  
+  
+  
+  
+    
+}
