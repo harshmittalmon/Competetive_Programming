@@ -1,0 +1,49 @@
+solution WAS NOT ACCEPTED BUT LEARNING IS IMPORTANT!!!!!
+FOR USING CUSTOM COMPARATOR WITH PRIORITY QUEUE WE NEED TO DEFINE CLASS WITH THE COMPARATAR NAME 
+AND IN THAT DEFINE THE COMPARATAR FUNCTION
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class cmp {
+public:
+    bool operator()(pair<int,int> below, pair<int,int> above)
+    {
+        if (below.first < above.first) {
+            return true;
+        }
+        else if (below.first == above.first
+                 && below.second > above.second) {
+            return true;
+        }
+ 
+        return false;
+    }
+};
+ 
+int main() 
+{
+  int t;cin>>t;
+  
+  while(t--){
+    int n,k;
+    cin>>n>>k;
+    priority_queue<pair<int,int>,vector<pair<int,int>>,cmp> pq;
+    for(int i=0;i<n;i++){
+      int num;cin>>num;
+      pq.push({num,i+1});
+    }
+    while(!pq.empty()){
+      auto it = pq.top();
+      pq.pop();
+      it.first-=k;
+      if(it.first<1)cout << it.second<< " ";
+      else pq.push(it);
+    }
+    cout << endl;
+  }
+  
+    
+}
