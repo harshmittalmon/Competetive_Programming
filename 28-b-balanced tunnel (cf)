@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() 
+{
+    int n;cin>>n;
+    vector<int > a(n),b(n),vis(100010);
+    for(auto & i : a)cin>>i;
+    for(auto & i : b)cin>>i;
+    int l=0,r=0;
+    int count=0;
+    while(l<n && r<n){
+      if(a[l]==b[r]){
+        vis[a[l]] =1;
+        l++,r++;
+      }
+      else if(vis[a[l]]==0){
+        vis[b[r]]=1;
+        r++;
+        count++;
+        
+      }
+      else{
+        l++;
+      }
+      
+    }
+    cout << count<<endl;
+    
+}
