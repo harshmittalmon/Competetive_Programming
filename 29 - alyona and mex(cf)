@@ -1,0 +1,18 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() 
+{
+    int n,m;cin>>n>>m;
+    int mini =INT_MAX;
+    for(int i=0;i<m;i++){
+      int a,b;cin>>a>>b;mini = min(mini,b-a);
+    }
+    cout << mini+1 <<endl;
+    mini = mini+1;
+    for(int i=0;i<n;i++){
+      cout << i%(mini)<<" ";
+    }
+    cout << endl;
+    
+}
