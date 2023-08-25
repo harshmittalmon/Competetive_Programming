@@ -1,5 +1,5 @@
 // calculate primes or with modif used to store the count of numbers(make array of int in that case)
-// 1 - Sieve
+// 1 - Sieve  ******************************************************************************************************
 void Sieve(int n)
 {
     // Create a boolean array "prime[0..n]" and initialize
@@ -28,7 +28,7 @@ void Sieve(int n)
 
 
 // max maxSubArraySum or count of max subarr or which subarr
-//   2 - kadane's algo
+//   2 - kadane's algo  ******************************************************************************************************
 int maxSubArraySum(vector<int> arr, int size)
 {
     int gen_max = INT_MIN, curr_max = 0;
@@ -45,7 +45,7 @@ int maxSubArraySum(vector<int> arr, int size)
 }
 
 //to check if the number is major in an array
-// 3 -  MOORE'S VOTING 
+// 3 -  MOORE'S VOTING   ******************************************************************************************************
 int findMajority(vector<int> arr, int n)
 {
     int i, candidate = -1, votes = 0;
@@ -78,7 +78,7 @@ int findMajority(vector<int> arr, int n)
 
 
 
-// 4 - FAST EXPNENTIATION
+// 4 - FAST EXPNENTIATION ******************************************************************************************************
 long long powerab(long long a ,long long b , int mod) {
     long long ans = 1;
     while(b>0){
@@ -93,7 +93,7 @@ long long powerab(long long a ,long long b , int mod) {
 }
 
 
-// 5- TERNARY SEARCH 
+// 5- TERNARY SEARCH  ******************************************************************************************************    
 int ternarySearch(int l, int r, int key, int ar[])
 {
     while (r >= l) {
@@ -123,4 +123,41 @@ int ternarySearch(int l, int r, int key, int ar[])
         }
     }
     return -1;
+}
+
+
+
+//STABLE SORT USAGE ******************************************************************************************************
+struct coord {
+  int x;int y;int z;
+};
+bool cmp(coord a , coord b){
+  if(a.x!=b.x)
+  return a.x < b.x;
+  else return a.y<b.y;
+  
+}
+int main{
+    // NUMBER OF INPUTS
+  int n;cin>>n;
+    vector<coord> v(n);   // COORD IS USER DEFINED STRUCT
+    for(int i=0;i<n;i++){
+      cin>>v[i].x>>v[i].y>>v[i].z; // TAKING INPUTS IN EACH VALUE OF VECTOR WHOSE DATA TYP EIS COORD
+      
+    }
+    for(int i=0;i<n;i++){// BEFORE SORT
+      cout <<v[i].x <<" ";
+      cout <<v[i].y<<" ";
+      cout <<v[i].z<<" ";
+      cout <<endl;
+      
+    }
+    stable_sort(v.begin(),v.end(),cmp);// USING STABLE SORT (MAINTAINS THE RELATIVE ORDER OF THE CORRESPONDING ELEMENTS
+    for(int i=0;i<n;i++){
+      cout <<v[i].x <<" ";// AFTER SORT 
+      cout <<v[i].y<<" ";
+      cout <<v[i].z<<" ";
+      cout <<endl;
+      
+    }
 }
