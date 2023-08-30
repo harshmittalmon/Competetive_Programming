@@ -12,6 +12,7 @@ using namespace std;
 #define itc int t; \
             cin>> t;\
             while(t--)
+#define all(v) v.begin(),v.end()
 
 void solve(){
     int n;
