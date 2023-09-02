@@ -12,7 +12,26 @@ using namespace std;
 #define itc int t; \
             cin>> t;\
             while(t--)
-#define all(v) v.begin(),v.end()
+#define all(v) v.begin(),v.end
+
+// -----------string stream usage-------------------------------
+string removeSpaces(string str)
+{
+    // Storing the whole string into string stream
+    stringstream ss(str);
+    string temp; // temp is for iterating in sstream
+ 
+    // Making the string empty
+    str = "";
+ 
+    // Running loop till end of stream and getting every word
+    while (getline(ss, temp, ' ')) { // getline( string from which we want input, iterator string, delimiter)
+        // Concatenating in the string to be returned
+        str = str + temp ;
+    }
+    return str;
+}
+
 
 void solve(){
     int n;
