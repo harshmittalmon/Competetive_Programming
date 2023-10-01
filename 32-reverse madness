@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+void solve() 
+{
+  
+    int n,k;cin>>n>>k;
+    string s;cin>>s;
+    vector<int> l(k),r(k);
+    for(auto & i : l ){cin>>i;--i;}
+    for(auto & i : r ){cin>>i;--i;}
+    int q;cin>>q;
+    vector<int> test(n);
+    for(int i=0;i<q;i++){
+      int num;cin>>num;test[num-1]++;
+    }
+    
+    for(int i=0;i<k;i++){
+      int count = 0 ;
+      for( int j =  l[i] ; j <= (r[i]+l[i])/2 ; j++ ){
+        count+=(test[j]+test[l[i]+r[i]-j]);
+        if(count&1){
+          swap(s[j], s[l[i]+r[i]-j]);
+        }
+      }
+    }
+    cout << s<<endl;
+    
+}
+int main(){
+  int t;cin>>t;
+  while(t--){
+    solve();
+  }
+}
