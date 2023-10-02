@@ -1,0 +1,49 @@
+#include <bits/stdc++.h>
+using namespace std;
+int arr[200000][32];
+
+
+bool check(int L, int K , int k){
+  int num=0;
+  for(int i=0;i<=31;i++){
+    if(arr[K][i]-arr[L-1][i] == K-L+1){
+      num|=(1<<i);
+    }
+  }
+  return num>=k;
+}
+int main() 
+{
+    int t;cin>>t;
+    while(t--){
+      
+      int n;cin>>n;
+      for(int i=1;i<=n;i++){
+        
+        int x;cin>>x;
+        for(int j=0;j<=31;j++){
+          arr[i][j]=(arr[i-1][j]+(x>>j&1)); // HOW TO CONSTRUCT PREFIX SUM OF BITS ? 
+        }
+        
+      }
+      int q;cin>>q;
+      while(q--){
+        int l;int k;cin>>l>>k;
+        int L = l , R = n;
+        
+        while(L<=R){                        // BINARY SEARCH 
+          int  mid = (L+R)>>1;
+          if(check(l,mid,k)){
+            L=mid+1;
+          }
+          else{
+            R = mid-1;
+          }
+        }
+        cout<<(R<l?-1:R)<<" ";
+
+      }
+      cout <<endl;
+      
+    }
+}
