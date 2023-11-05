@@ -1,0 +1,99 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define vectinp(v){for(auto&i:v){cin>> i;}}
+#define PrintVec(v){for(auto&i:v){cout<< i<<" ";}cout<< endl;}
+#define vi vector<int> 
+#define vll vector<long long>
+#define mapll map<long long,long long>
+#define umapll unordered_map<long long ,long long>
+#define mapii map<int,int> 
+#define u_mapii unordered_map<int,int> 
+#define ll long long
+#define itc int t; \
+            cin>> t;\
+            while(t--)
+#define all(v) v.begin(),v.end()
+#define sz(x) (int)(x.size())
+
+// -----------string stream usage---------------------------------------------------------------------------------------------
+string removeSpaces(string str)
+{
+    // Storing the whole string into string stream
+    stringstream ss(str);
+    string temp;
+    str = "";
+    while (getline(ss, temp, ' ')) { 
+        str = str + temp ;
+    }
+    return str;
+}
+
+//-----------------string storing integer to array storing those values--------------------------------------------------------------
+void integer_string_to_arr(string& s,vector<int> & v){
+  int j=0;
+  for(char i : s){
+       string temp="" ;temp.push_back(i);
+       int num = stoi(temp);
+       v[j++]=num;
+  }
+}
+int stringsum(string s){
+  int sum = 0;
+  for(int i=0;i<s.size();i++){
+    sum+=(s[i]-'0');
+  }
+  return sum;
+}
+
+void solve(){
+    int n;cin>>n;
+    ll ans  = n;
+    vector<string> vect(n);
+    map<pair<ll,ll>,ll> mp;
+    
+    for(auto & i: vect)cin>>i;
+    sort(vect.begin(),vect.end(),[&](string s1,string s2){return s1.size()<s2.size();});
+    
+    for(auto & i : vect){
+      for(int j  = 1 ;j<=5;j++){
+        if((i.size()+j)%2!=0)continue;
+        ll tempsum = 0;
+        ll half =  (i.size()+j)/2;
+        for(int k=0;k<half;k++){
+          tempsum+=(i[k]-'0');
+        }
+        // cout <<"temp sum after half addition : " <<tempsum<< endl;
+        for(int k = half;k<i.size();k++){
+          tempsum-=(i[k]-'0');
+          // cout << " k " <<k << endl;
+        }
+        // cout <<"temp sum for required sum : " <<tempsum<< endl;
+        if(tempsum>=0)
+        ans+=(mp[{tempsum, j}]);
+      }
+      reverse(i.begin(),i.end());
+      for(int j  = 1 ;j<=5;j++){
+        if((i.size()+j)%2)continue;
+        ll tempsum = 0;
+        ll half =  (i.size()+j)/2;
+        for(int k=0;k<half;k++){
+          tempsum+=(i[k]-'0');
+        }
+        for(int k = half;k<i.size();k++){
+          tempsum-=(i[k]-'0');
+        }
+        if(tempsum>=0)
+        ans+=(mp[{tempsum, j}]);
+        
+      }
+      
+      
+      mp[{stringsum(i),i.size()}]++;
+    }
+    
+    
+    cout <<ans<<endl;
+}
+int main(){
+    solve();
+}
