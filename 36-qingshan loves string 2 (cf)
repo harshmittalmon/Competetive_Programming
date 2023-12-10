@@ -1,0 +1,87 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define vectinp(v){for(auto&i:v){cin>> i;}}
+#define PrintVec(v){for(auto&i:v){cout<< i<<" ";}cout<< endl;}
+#define vi vector<int> 
+#define vll vector<long long>
+#define mapll map<long long,long long>
+#define umapll unordered_map<long long ,long long>
+#define mapii map<int,int> 
+#define u_mapii unordered_map<int,int> 
+#define ll long long
+#define itc int t; \
+            cin>> t;\
+            while(t--)
+#define all(v) v.begin(),v.end()
+#define sz(x) (int)(x.size())
+
+// -----------string stream usage---------------------------------------------------------------------------------------------
+string removeSpaces(string str)
+{
+    // Storing the whole string into string stream
+    stringstream ss(str);
+    string temp;
+    str = "";
+    while (getline(ss, temp, ' ')) { 
+        str = str + temp ;
+    }
+    return str;
+}
+
+//-----------------string storing integer to array storing those values--------------------------------------------------------------
+void integer_string_to_arr(string& s,vector<int> & v){
+  int j=0;
+  for(char i : s){
+       string temp="" ;temp.push_back(i);
+       int num = stoi(temp);
+       v[j++]=num;
+  }
+}
+
+
+
+
+
+void solve() {
+    int n;cin>>n;string s;cin>>s;
+    deque<char> dq;
+    for(int i=0;i<n;i++){
+      dq.push_back(s[i]);
+    }
+    int count =0 ;
+    if(s.size()%2){
+      cout<<-1<<endl;return ;
+    }
+    vector<int> ops;int i =0;
+    while(!dq.empty() and count<=300){
+      char frt = dq.front(),back = dq.back();
+      if(frt!=back){
+        dq.pop_front();dq.pop_back();
+      }
+      else if(frt=='0'){
+        ops.push_back(i+sz(dq));
+        count++;dq.pop_front();dq.push_back('0');
+        
+      }
+      else{
+        count++;dq.pop_back();dq.push_front('1');
+        ops.push_back(i);
+      }
+      i+=1;
+    }
+    if(count > 300){
+      cout <<-1<<endl;
+    }
+    else{
+      cout <<count<<endl;
+      for(auto & i: ops){
+        cout << i<<' ';
+      }
+      cout <<endl;
+    }
+}
+int main(){
+  itc{
+    solve();
+  }
+}
