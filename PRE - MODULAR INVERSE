@@ -1,0 +1,38 @@
+    #define ll long long 
+    ll M = 1e9+7;
+    ll power(ll x, unsigned ll y)
+    {
+        if (y == 0)
+            return 1;
+        ll p = power(x, y / 2) % M;
+        p = (p * p) % M;
+        return (y % 2 == 0) ? p : (x * p) % M;
+    }
+    ll modInverse(ll A)
+    {
+        return (power(A, M - 2));
+    }
+    
+    
+
+    ll fac(int n)
+    {
+        ll x = 1;
+        for (int i = 1; i <= n; i++)
+        {
+            x *= i;
+            x %= M;
+        }
+        return x;
+    }
+  
+
+    int CountString(int x, int y) {
+        
+        long long num= fac(y+1)%M,deno1 = fac(x)%M,deno2= fac(y+1-x)%M;
+        deno1 = modInverse(deno1); // IT IS CALCULATING MODULAR INVERSE
+        deno2 = modInverse(deno2);
+        
+        
+        
+    }
