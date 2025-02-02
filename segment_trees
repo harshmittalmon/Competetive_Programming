@@ -1,0 +1,44 @@
+// Online C++ compiler to run C++ program online
+#include <bits/stdc++.h>
+using namespace std; 
+int arr[100],seg[4*100];
+
+
+
+void build(int index, int left, int right ){
+    if( left == right) {
+        seg[index] = arr[left] ;
+        return ;
+    }
+    int mid = left + (right-left)/2;
+    build( 2*index+1, left , mid);
+    build( 2*index+2, mid +1 , right);
+    seg[index] = max(seg[2*index+1], seg[2*index+2]);
+}
+
+
+int query(int ind , int low , int high , int left , int right){
+    if( left <= low && right >= high)return seg[ind];     // checking if the interval is completely overlapped
+    if( left > high || right < low)return INT_MIN;          // checking if the interval is somewhat coming into the range
+    int mid = low + (high - low )/2; 
+    return max(query(2*ind+1,low ,mid, left, right  ),
+    query(2*ind+2 , mid+1, high , left , right));
+}
+int main() {
+    int n ; cin>> n ;
+    
+    for( int i=0; i< n ;i++){
+        cin>> arr[i];
+    }
+    build(0,0,n-1);
+    int q ; cin>> q; 
+    while( q--){
+        int l , r ; 
+        cin>>l>>r; 
+        cout << query(0,0,n-1,l,r)<< endl;
+    }
+    for( int i=0;i< 4* n ;i++)cout << seg[i]<< " ";
+    cout << endl;
+    
+    
+}
