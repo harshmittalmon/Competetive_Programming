@@ -13,7 +13,7 @@ cout << r.second-r.first << "\n";
 
 
 
-PBDS library 
+2. PBDS library 
 headers 
 #include <ext/pb_ds/assoc_container.hpp>
 using namespace __gnu_pbds;
@@ -28,6 +28,32 @@ s.insert(9);
 cout << s.order_of_key(3);// 1 
 cout << *s.find_by_order(0);// 2
 
+
+3. Custom Comparator
+struct Stud {
+
+    string  name ; 
+    int roll;
+    float marks; 
+
+    bool operator < (const Stud & other) const {
+        if (marks != other.marks) return marks > other.marks; 
+        if (roll != other.roll) return roll < other.roll;    
+        return name < other.name;  
+    }
+    
+};
+
+int main(){ 
+    map<Stud,int> mp;
+    mp[{"harsh",2,30.0}] = 1; 
+    mp[{"aurabh",2,60.0}] = 1; 
+    for( auto i : mp ){
+        cout << i.first.name <<endl;
+    }
+}
+  // const Stud& other → means the parameter other won’t be modified inside the function.
+  // ... const at the end → means this object (on the left side of <) won’t be modified either.
 
 
 
