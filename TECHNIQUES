@@ -52,8 +52,40 @@ int main(){
         cout << i.first.name <<endl;
     }
 }
+
+
+or 
+struct Edge {
+	int a, b;
+	int width;
+};
+
+bool operator<(const Edge &x, const Edge &y) { return x.width < y.width; }
+
   // const Stud& other → means the parameter other won’t be modified inside the function.
   // ... const at the end → means this object (on the left side of <) won’t be modified either.
+
+or 
+
+
+	
+struct Edge {
+	int a, b;
+	int width;
+};
+
+int main() {
+	constexpr int edge_num = 4;
+
+	vector<Edge> edges(edge_num);
+	for (Edge &e : edges) { cin >> e.a >> e.b >> e.width; }
+	sort(edges.begin(), edges.end(),
+	     [](const Edge &x, const Edge &y) { return x.width < y.width; });
+
+	for (const Edge &e : edges) { printf("(%i, %i): %i\n", e.a, e.b, e.width); }
+}
+
+
 
 
 
